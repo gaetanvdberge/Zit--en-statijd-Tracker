@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             x:Class="project2.View.ColleaguesDetail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Activated="ToolbarEdit_Activated" Priority="0" Order="Primary" x:Name="ToolbarEdit"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="StackNoFriends" IsVisible="False" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="15, -15, 15, 15">
+                    <Label Text="Better Together" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontFamily="{StaticResource BoldFont}" FontSize="32" TextColor="#676767"/>
+                    <Label Text="Connect with friends to challenge, motivate, and inspire each other. Get Social and get better." HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0,15,0,0" FontFamily="{StaticResource LightFont}" Font="12" TextColor="#A8A8A8"/>
+                </StackLayout>
+                <ListView x:Name="lvwColleagues" RowHeight="90" SeparatorColor="#D8D8D8" ItemSelected="lvwColleagues_ItemSelected" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <ci:CircleImage   
+                                    HeightRequest="60"   
+                                    WidthRequest="60"   
+                                    Source="{Binding UrlProfilePicture}"   
+                                    Aspect="AspectFill"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start"
+                                    Margin="15, 15, 15, 15">
+                                    </ci:CircleImage>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontFamily="{StaticResource NormalFont}" TextColor="#676767" Margin="0, 0, 0, -5" FontSize="14"/>
+                                        <Label Text="{Binding Email}" FontFamily="{StaticResource LightFont}" TextColor="#676767" Margin="0, -5, 0, 0" FontSize="12"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="lvwColleaguesDelete" RowHeight="90" SeparatorColor="#D8D8D8" ItemSelected="lvwColleagues_ItemSelected" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <ci:CircleImage   
+                                    HeightRequest="60"   
+                                    WidthRequest="60"   
+                                    Source="{Binding UrlProfilePicture}"   
+                                    Aspect="AspectFill"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start"
+                                    Margin="15, 15, 15, 15">
+                                    </ci:CircleImage>
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                                        <Label Text="{Binding Name}" FontFamily="{StaticResource NormalFont}" TextColor="#676767" Margin="0, 0, 0, -5" FontSize="14"/>
+                                        <Label Text="{Binding Email}" FontFamily="{StaticResource LightFont}" TextColor="#676767" Margin="0, -5, 0, 0" FontSize="12"/>
+                                    </StackLayout>
+                                    <Image x:Name="imgDelete" Source="https://image.prntscr.com/image/hRgBc4E7TW6aX4aPsJpT2w.png" WidthRequest="30" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="0,0,10,0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Image x:Name="AddColleague" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"  HeightRequest="40" WidthRequest="40" Margin="15">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AddColleague_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

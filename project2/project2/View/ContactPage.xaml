@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.View.ContactPage"
+            xmlns:view="clr-namespace:project2.View.Dashboard">
+
+    <view:DayTab Title="Today" x:Name="DayTab"/>
+    <view:WeekTab Title="Week" x:Name="WeekTab"/>
+    <view:MonthTab Title="Overview" x:Name="MonthTab"/>
+
+</TabbedPage>

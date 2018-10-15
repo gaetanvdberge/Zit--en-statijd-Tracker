@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             x:Class="project2.View.Dashboard.MonthTab">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ListView x:Name="lvwCharts" RowHeight="180" SeparatorColor="#D8D8D8" VerticalOptions="FillAndExpand" ItemSelected="lvwCharts_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!-- RECHTHOEK 01 - Links Cirkeldiagram & rechts staafdiagrammen -->
+                                <Frame CornerRadius="8" HeightRequest="140" BackgroundColor="White" Margin="8,8,8,4">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="3*" />
+                                            <ColumnDefinition Width="5*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label HorizontalOptions="CenterAndExpand" Text="{Binding Week}" Margin="0,2,0,8" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center" Grid.ColumnSpan="2"/>
+
+                                        <!-- 01A - DONUT (LINKS) -*-*-*-*-*-*-* -->
+                                        <StackLayout  Grid.Row="1" Grid.Column="0">
+                                            <forms:ChartView x:Name="ChartsStaVsZit" Margin="0,0,0,-20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Chart="{Binding Donut}" Scale="1.4"/>
+                                            <!-- KLEUREN  -->
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="0,0,0,-5" >
+                                                <Frame CornerRadius="5" Padding="0" HeightRequest="20" WidthRequest="18"  Scale="0.4" HasShadow="False" VerticalOptions="CenterAndExpand" BackgroundColor="#cf6b00"/>
+                                                <Label Text="Stand" FontSize="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontFamily="{StaticResource NormalFont}" TextColor="#676767"/>
+                                                <Frame CornerRadius="5" Padding="0" HeightRequest="20" WidthRequest="18"  Scale="0.4"  HasShadow="False" VerticalOptions="CenterAndExpand" BackgroundColor="#F9ECDF" Margin="5,0,0,0"/>
+                                                <Label Text="Sit" FontSize="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontFamily="{StaticResource NormalFont}" TextColor="#676767"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <!-- 01B - Bars (RECHTS) -*-*-*-*-*-*-* -->
+                                        <forms:ChartView x:Name="ChartStavenUren" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1" Chart="{Binding Baar}"/>
+                                            
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

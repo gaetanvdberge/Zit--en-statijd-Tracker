@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="project2.View.Dashboard.WeekTab">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <!-- ENKEL ZICHTBAAR VOOR  -->
+                <Frame x:Name="ColleagueFrame" CornerRadius="8" HeightRequest="70" BackgroundColor="White" Margin="8,8,8,0" IsVisible="False">
+                    <StackLayout Orientation="Horizontal">
+                        <ci:CircleImage   
+                            HeightRequest="60"   
+                            WidthRequest="60"   
+                            x:Name="imgColleagueProfile"
+                            Aspect="AspectFill"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Start"
+                            Margin="5, 5, 5, 5">
+                        </ci:CircleImage>
+                        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+                            <Label x:Name="lblColleagueName" FontFamily="{StaticResource NormalFont}" TextColor="#676767" Margin="0, 0, 0, -5" FontSize="14"/>
+                            <Label Text="Lorem ipsum dolores" FontFamily="{StaticResource LightFont}" TextColor="#676767" Margin="0, -5, 0, 0" FontSize="12"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- RECHTHOEK 01 - Links Cirkeldiagram & rechts staafdiagrammen -->
+                <Frame CornerRadius="8" HeightRequest="100" BackgroundColor="White" Margin="8,8,8,4">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="5*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- 01A - DONUT (LINKS) -*-*-*-*-*-*-* -->
+                        <StackLayout Orientation="Vertical" Margin="0,-8,0,20" Padding="0">
+                            <forms:ChartView x:Name="ChartsStaVsZit" Grid.Row="0" Grid.Column="0" Margin="0,0,5,0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                        <!-- KLEUREN  -->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,-5">
+                            <Frame CornerRadius="5" Padding="0" HeightRequest="20" WidthRequest="18"  Scale="0.4" HasShadow="False" VerticalOptions="CenterAndExpand" BackgroundColor="#cf6b00"/>
+                            <Label Text="Stand" FontSize="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontFamily="{StaticResource NormalFont}" TextColor="#676767"/>
+                            <Frame CornerRadius="5" Padding="0" HeightRequest="20" WidthRequest="18"  Scale="0.4"  HasShadow="False" VerticalOptions="CenterAndExpand" BackgroundColor="#F9ECDF" Margin="5,0,0,0"/>
+                            <Label Text="Sit" FontSize="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" FontFamily="{StaticResource NormalFont}" TextColor="#676767"/>
+                        </StackLayout>
+                        <!-- 01B - Bars (RECHTS) -*-*-*-*-*-*-* -->
+                        <forms:ChartView x:Name="ChartStavenUren" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <!-- VIEKRANTEN NAAST ELKAAR ******************** -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- VIERKANT 02 - Circkel met 8 uren in -->
+                    <Frame CornerRadius="8" HeightRequest="120" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="8,4,4,4" Grid.Row="0" Grid.Column="0">
+                        <RelativeLayout>
+                            <forms:ChartView x:Name="ChartCirkelUren" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"/>
+                            <Label Text="Stand" FontFamily="{StaticResource NormalFont}" FontSize="14" TextColor="#676767" Margin="-10,-10,0,0"/>
+                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Margin="0" Padding="0" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                                <Label x:Name="txtStandingHours" FontSize="36" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,-10,0,-6"/>
+                                <Label Text="of 40 hours" FontSize="13" FontFamily="{StaticResource NormalFont}" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,-6,0,0"/>
+                            </StackLayout>
+                        </RelativeLayout>
+                    </Frame>
+
+                    <!-- VIERKANT 03 - Uren zit en staan (TEKST) -->
+                    <Frame CornerRadius="8" HeightRequest="150" HorizontalOptions="FillAndExpand" BackgroundColor="White" Margin="4,4,8,4" Grid.Row="0" Grid.Column="1">
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+                            <Label x:Name="lblUurZit" TextColor="#676767" FontSize="26" Margin="0" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource NormalFont}"/>
+                            <Label Text="Sit" TextColor="#676767" FontSize="14" HorizontalOptions="CenterAndExpand" Margin="0,-10,0,0" FontFamily="{StaticResource LightFont}"/>
+                            <Label x:Name="lblUurStand" TextColor="#676767" FontSize="26" Margin="0" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource NormalFont}"/>
+                            <Label Text="Stand" TextColor="#676767" FontSize="14" HorizontalOptions="CenterAndExpand" Margin="0,-10,0,0" FontFamily="{StaticResource LightFont}"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <!-- *********************************************** -->
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

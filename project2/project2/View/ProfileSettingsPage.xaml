@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:project2"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.View.ProfileSettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--#region Oranje bovendeel-->
+            <Frame BackgroundColor="#fe8d13" Margin="0" Padding="5">
+                <StackLayout Padding="0" Margin="0">
+                    <Grid Margin="0" Padding="0">
+                        <!--#region  Profile Picture-->
+                        <ci:CircleImage
+                            x:Name="imgProfilePic"
+                            Margin="0"
+                            HeightRequest="100"   
+                            WidthRequest="100"  
+                            BorderColor="#FBBC7E"
+                            BorderThickness="4"
+                            Source="https://i.pinimg.com/736x/ce/77/02/ce7702c7eec3e02eef416cf294a93fdc--shannyn-sossamon-alexis-ren.jpg"   
+                            Aspect="AspectFill"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Start">
+                            <ci:CircleImage.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CirlceImage_Tapped"/>
+                            </ci:CircleImage.GestureRecognizers>
+                        </ci:CircleImage>
+                        <!--#endregion-->
+                        <Image x:Name="iconEditPicture" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="End" Margin="75, 0, 0, 10"/>
+                    </Grid>
+                    <Label HorizontalOptions="Center" x:Name="lblUserName" TextColor="White" VerticalOptions="Center" Margin="0,8,0,8"/>
+                    <StackLayout Orientation="Horizontal" Margin="5" Padding="0,0,0,5">
+                        <Button x:Name="btnDeleteAccount" BackgroundColor="#CF6B00" TextColor="White" Text="DELETE ACCOUNT" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderRadius="50" Clicked="btnDeleteAccount_Clicked"/>
+                        <Button x:Name="btnSaveChanges" BackgroundColor="#FBBC7E" TextColor="White" Text="SAVE CHANGES" VerticalOptions="End" HorizontalOptions="FillAndExpand" BorderRadius="50" Clicked="btnSaveChanges_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <!--#endregion-->
+
+            <!--#region Onderste deel-->
+            <ScrollView>
+                <StackLayout Margin="15, 20, 15, 10">
+                    
+                    <StackLayout Orientation="Horizontal" Margin="11,0,11,10">
+                        <Label Text="Name" FontFamily="{StaticResource LightFont}" TextColor="#676767" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14"/>
+                        <local:BorderlessEntry x:Name="txtName" FontFamily="{StaticResource NormalFont}" TextColor="#676767" PlaceholderColor="#676767" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="14"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="11,0"/>
+
+                    <StackLayout Orientation="Horizontal" Margin="11,10,11,10">
+                        <Label Text="Email" FontFamily="{StaticResource LightFont}" TextColor="#676767" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14"/>
+                        <local:BorderlessEntry x:Name="txtEmail" FontFamily="{StaticResource NormalFont}" TextColor="#676767" PlaceholderColor="#676767" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="14" IsEnabled="False"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="11,0"/>
+
+                    <StackLayout Orientation="Horizontal" Margin="11,10,11,10">
+                        <Label Text="New Password" FontFamily="{StaticResource LightFont}" TextColor="#676767" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14"/>
+                        <local:BorderlessEntry x:Name="txtNewPass" Placeholder="•••••••" FontFamily="{StaticResource NormalFont}" TextColor="#676767" PlaceholderColor="#a8a8a8" HorizontalTextAlignment="End" HorizontalOptions="FillAndExpand" VerticalOptions="Center" FontSize="14" IsPassword="True"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="11,0"/>
+
+                </StackLayout>
+            </ScrollView>
+            <!--#endregion-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

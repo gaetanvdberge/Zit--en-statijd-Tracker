@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:project2"
+             x:Class="project2.View.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Overlay voor laden -->
+            <Frame x:Name="frameLayer"
+                   HorizontalOptions="FillAndExpand"
+                   IsVisible="False"
+                   VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <ActivityIndicator x:Name="indicatorLoader" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" />
+                </StackLayout>
+            </Frame>
+            <!-- Einde overlay -->
+
+            <Image x:Name="imgBackground" Aspect="AspectFill"/>
+            <Image x:Name="imgLogo" HorizontalOptions="Center" Margin="80,40,80,0" VerticalOptions="Start"/>
+            <StackLayout Orientation="Vertical" VerticalOptions="End" Margin="0,0,0,20">
+                <StackLayout Orientation="Horizontal" Margin="35,20,20,0" TranslationY="4">
+                    <Image x:Name="imgMail" WidthRequest="20"/>
+                    <local:BorderlessEntry Text="" x:Name="entMail" TextColor="White" Placeholder="Email" FontFamily="{StaticResource LightFont}" PlaceholderColor="#F0F0F0" HorizontalTextAlignment="Start" FontSize="Small" HorizontalOptions="FillAndExpand" TranslationY="3"/>
+
+                </StackLayout>
+                <BoxView HeightRequest="0.2" BackgroundColor="White" Margin="20,0,20,0"/>
+
+                <StackLayout Orientation="Horizontal" Margin="35,15,20,0" TranslationY="4">
+                    <Image x:Name="imgLock" WidthRequest="20"/>
+                    <local:BorderlessEntry Text="" x:Name="entPassword" IsPassword="True" TextColor="White" Placeholder="Password" FontFamily="{StaticResource LightFont}" PlaceholderColor="#F0F0F0" HorizontalTextAlignment="Start" FontSize="Small" HorizontalOptions="FillAndExpand" TranslationY="3"/>
+
+                </StackLayout>
+                <BoxView HeightRequest="0.2" BackgroundColor="White" Margin="20,0,20,0"/>
+
+                <Button x:Name="btnLogin" Text="LOGIN" TextColor="#FE8D13" FontFamily="{StaticResource BoldFont}" BackgroundColor="#FFFFFF" Margin="20,20,20,0" Clicked="btnLogin_Clicked" BorderRadius="13"/>
+
+                <StackLayout Orientation="Horizontal" Margin="20,15,20,0" HorizontalOptions="CenterAndExpand" >
+                    <Label Text="DON'T HAVE AN ACCOUNT?" FontFamily="{StaticResource LightFont}" TextColor="#F0F0F0" HorizontalOptions="Center" FontSize="10" Margin="0"/>
+                    <Label x:Name="lblCreateAcc" Text="CREATE ACCOUNT" FontFamily="{StaticResource BoldFont}" TextColor="#F0F0F0" HorizontalOptions="Center" FontSize="10" Margin="0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tabCreateAcc" Tapped="lblCreateAcc_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            
+        </Grid>
+
+        <!--<Grid>
+            <Image x:Name="imgBackground" Aspect="AspectFill"/>
+            <StackLayout>
+                <Image x:Name="imgLogo" Aspect="AspectFill" Margin="50,75,50,0"/>
+                --><!--<StackLayout Orientation="Vertical" VerticalOptions="End">--><!--
+                    <Grid HorizontalOptions="End">
+                        <Grid.RowDefinitions>
+                            
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="imgMail"  Grid.Column="1" Grid.Row="1" />
+                        <Entry TextColor="White" Placeholder="Username" PlaceholderColor="#F0F0F0" HorizontalTextAlignment="Start" Grid.Column="2" Grid.Row="1"/>
+                        <Image x:Name="imgLock" Grid.Column="1" Grid.Row="2"/>
+                        <Entry x:Name="entPassword" IsPassword="True" Placeholder="Password" PlaceholderColor="#F0F0F0" HorizontalTextAlignment="Start" Grid.Column="2" Grid.Row="2" />
+
+                    </Grid>
+                --><!--</StackLayout>--><!--
+
+                <Button x:Name="btnLogin" Text="LOGIN"  TextColor="#FE8D13" BackgroundColor="#FFFFFF" Margin="64,20,64,0" Clicked="btnLogin_Clicked"/>
+            </StackLayout>
+        </Grid>-->
+    </ContentPage.Content>
+</ContentPage>

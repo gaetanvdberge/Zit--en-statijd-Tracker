@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.View.QrCodePage"
+             BackgroundColor="#F9ECDF">
+    <ContentPage.Content>
+        <StackLayout Margin="20, 30, 20, 120">
+            <Frame BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" CornerRadius="10">
+                <StackLayout Margin="10">
+                    <Label x:Name="txtShareKey" FontFamily="{StaticResource BoldFont}" TextColor="#fe8d13" FontSize="36" Margin="0,0,0,15" HorizontalOptions="CenterAndExpand"/>
+                    <Image x:Name="imgQrCode" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5,10,5,0"/>
+                    <Label Text="Please show this QR-code to your colleagues." FontFamily="{StaticResource NormalFont}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="#676767" FontSize="12"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

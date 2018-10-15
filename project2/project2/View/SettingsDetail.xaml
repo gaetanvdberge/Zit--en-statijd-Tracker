@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="project2.View.SettingsDetail">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--#region MAIN-->
+            <Label Text="Main" Margin="15,10,0,0"/>
+
+            <StackLayout BackgroundColor="White">
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="MyProfileSettings_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Margin="15,0,0,0" x:Name="imgProfileSettings" WidthRequest="15"/>
+                    <Label Margin="10,0,0,0" x:Name="lblProfileSettings" Text="My profile settings" />
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="15,0"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <Image Margin="15,0,0,0" x:Name="imgSharekey" WidthRequest="15"/>
+
+                    <Label x:Name="lblTextSharekey" Text="Sharekey:" Margin="10,0,0,0" />
+                    <Label x:Name="lblUserSharekey" Margin="0,0,5,0" FontFamily="{StaticResource BoldFont}" TextColor="#fe8d13" HorizontalOptions="EndAndExpand"/>
+                    <Image Margin="0,0,15,0" x:Name="imgQr" WidthRequest="15" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgQr_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+
+
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="15,0"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <Image Margin="15,0,0,0" x:Name="imgPushNotifications" WidthRequest="15"/>
+
+                    <Label Margin="10,0,0,0" x:Name="lblPushNotifications" Text="Push Notifications" />
+                    <Switch IsToggled="True" HorizontalOptions="EndAndExpand" Margin="10,-10" Toggled="Switch_Toggled" x:Name="toggleNotifications"/>
+
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddASole_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Margin="15,0,0,0" x:Name="imgAddASole" WidthRequest="15"/>
+                    <Label Margin="10,0,0,0" x:Name="lblAddASole" Text="Bluetooth settings" />
+                    <Label Margin="0,0,15,0" x:Name="txtBluetoothState" HorizontalOptions="EndAndExpand" TextColor="#A8A8A8"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="15,0"/>
+                
+            </StackLayout>
+            <!--#endregion-->
+            <!--#region SUPPORT -->
+            <Label Text="Support" Margin="15,0,0,0"/>
+
+            <StackLayout BackgroundColor="White">
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ReportProblem_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Margin="15,0,0,0" x:Name="imgReportProblem" WidthRequest="15"/>
+
+                    <Label Margin="10,0,0,0" x:Name="lblReportProblem" Text="Report a problem"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8" Margin="15,0"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoToPrivacyPolicy_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Margin="15,0,0,0" x:Name="imgPrivacyPolicy" WidthRequest="15"/>
+
+                    <Label Margin="10,0,0,0" x:Name="lblPrivacyPolicy" Text="Privacy policy"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.5" BackgroundColor="#d8d8d8"/>
+            </StackLayout>
+            <!--#endregion-->
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

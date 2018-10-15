@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:project2"
+             xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions" 
+             x:Class="project2.View.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid>
+            <!-- Overlay voor laden -->
+            <Frame x:Name="frameLayer"
+                   HorizontalOptions="FillAndExpand"
+                   IsVisible="False"
+                   VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <ActivityIndicator x:Name="indicatorLoader" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Color="White" />
+                </StackLayout>
+            </Frame>
+            <!-- Einde overlay -->
+
+            <Image x:Name="imgBackground" Aspect="AspectFill"/>
+            <Image x:Name="imgLogo" HorizontalOptions="Center" Margin="80,40,80,0" VerticalOptions="Start"/>
+            <StackLayout Orientation="Vertical" VerticalOptions="End" Margin="0,0,0,20">
+                <StackLayout Orientation="Horizontal" Margin="35,0,20,0" TranslationY="5" HorizontalOptions="CenterAndExpand">
+                    <!-- IMAGECIRKEL ipv gewone Image -->
+
+                    <ci:CircleImage
+                        x:Name="imgProfilePic"
+                        Margin="0,0,0,20"
+                        HeightRequest="120"   
+                        WidthRequest="120"   
+                        Aspect="AspectFill"
+                        HorizontalOptions="StartAndExpand"
+                        IsVisible="False">
+                        <ci:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CirlceImage_Tapped"/>
+                        </ci:CircleImage.GestureRecognizers>
+                    </ci:CircleImage>
+
+                    <!-- ***************** -->
+
+                    <!--<Button x:Name="btnTakePic" Text="Take pic" Clicked="btnTakePic_Clicked" Margin="0,0,0,45" WidthRequest="150" HeightRequest="150" BorderRadius="75"/>-->
+
+                    <!-- In plaats van BTN klikken we op een image -->
+                    <Image x:Name="imgButtonTakePic" WidthRequest="120" HeightRequest="120" Margin="0,0,0,20">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="imgTakePic_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="35,0,20,0" TranslationY="6">
+                    <Image x:Name="imgName" WidthRequest="20"/>
+                    <local:BorderlessEntry x:Name="entName" TextColor="White" Placeholder="Name" PlaceholderColor="#F0F0F0" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Start" FontSize="Small" HorizontalOptions="FillAndExpand" TranslationY="1"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.2" BackgroundColor="White" Margin="20,0,20,0"/>
+
+                <StackLayout Orientation="Horizontal" Margin="35,15,20,0" TranslationY="7">
+                    <Image x:Name="imgMail" WidthRequest="20"/>
+                    <local:BorderlessEntry x:Name="entMail" TextColor="White" Placeholder="Email" PlaceholderColor="#F0F0F0" FontFamily="{StaticResource LightFont}" HorizontalTextAlignment="Start" FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.2" BackgroundColor="White" Margin="20,0,20,0"/>
+
+                <StackLayout Orientation="Horizontal" Margin="35,15,20,0" TranslationY="6">
+                    <Image x:Name="imgLock" WidthRequest="20"/>
+                    <local:BorderlessEntry x:Name="entPassword" IsPassword="True" TextColor="White" Placeholder="Password" FontFamily="{StaticResource LightFont}" PlaceholderColor="#F0F0F0" HorizontalTextAlignment="Start" FontSize="Small" HorizontalOptions="FillAndExpand" TranslationY="1"/>
+                </StackLayout>
+                <BoxView HeightRequest="0.2" BackgroundColor="White" Margin="20,0,20,0"/>
+
+                <Button x:Name="btnRegistreer" Text="REGISTER"  TextColor="#FE8D13" FontFamily="{StaticResource BoldFont}" BackgroundColor="#FFFFFF" Margin="20,20,20,0" Clicked="btnRegistreer_Clicked" BorderRadius="13"/>
+
+                <StackLayout Orientation="Horizontal" Margin="20,15,20,0" HorizontalOptions="CenterAndExpand">
+                    <Label Text="ALREADY HAVE AN ACCOUNT?" FontFamily="{StaticResource LightFont}" TextColor="#F0F0F0" HorizontalOptions="Center" FontSize="10" Margin="0"/>
+                    <Label x:Name="lblCreateAcc" Text="SIGN IN" FontFamily="{StaticResource BoldFont}" TextColor="#F0F0F0" HorizontalOptions="Center" FontSize="10" Margin="0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer x:Name="tapAlreadyAcc" Tapped="lblAlreadyAcc_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
